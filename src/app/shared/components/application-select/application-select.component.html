@@ -1,0 +1,13 @@
+<div class="application-select">
+  <div class="application-select__header">
+    <h1 class="header__title">Selecione uma aplicação</h1>
+    <mat-icon (click)="close()" class="header__close">close</mat-icon>
+  </div>
+  <div class="application-select__content">
+    <mat-selection-list [multiple]="false">
+      <mat-list-option (click)="applicationSelected(app)" *ngFor="let app of applications" [value]="app">
+        {{ app.name }}
+      </mat-list-option>
+    </mat-selection-list>
+  </div>
+</div>

@@ -1,0 +1,18 @@
+<button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu" class="configuration" mat-icon-button>
+  <mat-icon>account_circle</mat-icon>
+  <mat-icon>arrow_drop_down</mat-icon>
+</button>
+<mat-menu #menu="matMenu" class="es-card">
+  <button mat-menu-item>
+    <mat-icon>manage_accounts</mat-icon>
+    <span>Configurações</span>
+  </button>
+  <button (click)="openApplicationSelect()" mat-menu-item>
+    <mat-icon>view_list</mat-icon>
+    <span>Mudar aplicação</span>
+  </button>
+  <button mat-menu-item>
+    <mat-icon>logout</mat-icon>
+    <span>Sair</span>
+  </button>
+</mat-menu>

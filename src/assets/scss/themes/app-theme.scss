@@ -1,0 +1,23 @@
+@import "../variables/colors";
+@import "material-theming";
+
+@mixin card {
+  display: flex;
+  flex-direction: column;
+  padding: 0.5rem;
+  background-color: $bg-primary;
+  border-radius: 15px;
+}
+
+.es-card {
+  @include card;
+}
+
+.es-dialog {
+  @include card;
+  background-color: rgb(0, 0, 0, 0.95);
+
+  .mat-dialog-container {
+    background: transparent !important;
+  }
+}

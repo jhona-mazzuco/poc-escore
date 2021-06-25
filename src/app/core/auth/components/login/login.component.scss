@@ -1,0 +1,43 @@
+.login {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+
+  &__container {
+    padding: 1.5rem;
+    width: 360px;
+
+    .container {
+      &__logo {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 0.75rem;
+
+        img {
+          width: 250px;
+        }
+      }
+
+      &__actions {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        .actions {
+          &__forgot-password {
+            user-select: none;
+            text-decoration: none;
+            color: inherit;
+
+            &:hover {
+              cursor: pointer;
+              text-shadow: 0 0 0 #6d6d6d;
+            }
+          }
+        }
+      }
+    }
+  }
+}

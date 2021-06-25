@@ -1,0 +1,26 @@
+<form (ngSubmit)="onSubmit()" [formGroup]="form" class="login">
+  <div class="login__container es-card">
+    <div class="container__logo">
+      <img alt="logo" src="assets/images/logo-esfera.png"/>
+    </div>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Usuário</mat-label>
+      <input formControlName="username" matInput type="text">
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Senha</mat-label>
+      <input [type]="show ? 'text' : 'password'" formControlName="password" matInput>
+      <button (click)="show = !show" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="show" mat-icon-button
+              matSuffix>
+        <mat-icon>{{show ? 'visibility_off' : 'visibility'}}</mat-icon>
+      </button>
+    </mat-form-field>
+
+    <div class="container__actions">
+      <button [disabled]="form.invalid" mat-stroked-button type="submit">Entrar</button>
+      <a [routerLink]="['forgot-password']" class="actions__forgot-password">Esqueceu a sua senha?</a>
+    </div>
+  </div>
+</form>

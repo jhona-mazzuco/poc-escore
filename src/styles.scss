@@ -1,1 +1,18 @@
-/* You can add global styles to this file, and also import other style files */
+@import "assets/scss/themes/app-theme";
+@import "assets/scss/variables/colors";
+
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  background: url("assets/images/bg.jpg") no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  color: $font-color-primary;
+  overflow: hidden;
+}

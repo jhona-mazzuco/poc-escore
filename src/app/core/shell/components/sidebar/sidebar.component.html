@@ -1,0 +1,41 @@
+<div class="sidebar">
+  <a [routerLink]="['/']" class="sidebar__logo">
+    <img alt="sphere" class="sidebar__logo--sphere" src="assets/images/logo-sphere.png"/>
+    <img alt="name" class="sidebar__logo--name" src="assets/images/logo-name.png"/>
+  </a>
+
+  <ul class="sidebar__menu">
+    <li *ngFor="let item of menu" [type]="hasChild(item) ? 'group' : 'item'">
+      <ng-container *ngIf="!hasChild(item); else menuGroup">
+        <ng-container [ngTemplateOutletContext]="{ item: item }" [ngTemplateOutlet]="menuItem"></ng-container>
+      </ng-container>
+
+      <ng-template #menuGroup>
+        <button (click)="item.opened = !item.opened" class="menu__group">
+          <a class="menu__link menu__link--group">
+            <mat-icon>{{ item.icon ?? 'circle' }}</mat-icon>
+            <span>{{ item.name }}</span>
+          </a>
+          <mat-icon class="menu__group--icon">
+            {{ item.opened ? 'expand_more' : 'chevron_right' }}
+          </mat-icon>
+        </button>
+
+        <ng-container *ngIf="item.opened">
+          <span *ngFor="let children of item.children">
+            <ng-container [ngTemplateOutletContext]="{ item: children, isChildren: true }"
+                          [ngTemplateOutlet]="menuItem">
+            </ng-container>
+          </span>
+        </ng-container>
+      </ng-template>
+    </li>
+  </ul>
+</div>
+
+<ng-template #menuItem let-children="isChildren" let-item="item">
+  <a [ngClass]="{'menu__link--children': children}" [routerLink]="item?.url" class="menu__link">
+    <mat-icon>{{ item.icon ?? 'circle' }}</mat-icon>
+    <span>{{ item.name }}</span>
+  </a>
+</ng-template>

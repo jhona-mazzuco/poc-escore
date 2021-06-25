@@ -1,0 +1,42 @@
+.breadcrumb {
+  width: fit-content;
+  width: -moz-fit-content;
+  height: 25px;
+  flex-direction: row;
+  padding: 0.25rem 1rem;
+
+  &__item {
+    display: flex;
+    align-items: center;
+    height: 25px;
+
+    .item {
+      &__anchor {
+        font-size: 16px;
+        font-weight: bolder;
+        color: inherit;
+        text-decoration: none;
+        user-select: none;
+
+        &:hover {
+          text-shadow: 0 0 0 #fff;
+        }
+
+        &--simple {
+          cursor: default;
+
+          &:hover {
+            text-shadow: none;
+          }
+        }
+      }
+
+      &__next {
+        font-size: 24px;
+        margin: 0 10px;
+        height: 24px;
+        width: 24px;
+      }
+    }
+  }
+}

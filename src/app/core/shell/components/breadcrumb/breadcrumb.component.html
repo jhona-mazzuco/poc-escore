@@ -1,0 +1,14 @@
+<div class="breadcrumb es-card">
+  <span *ngFor="let item of breadcrumbs;let i = index" class="breadcrumb__item">
+    <ng-container *ngIf="!isLast(i) && breadcrumbs.length !== 1;else simpleItem">
+      <a [routerLink]="isLast(i) ? null : [item.url]" class="item__anchor">{{ item.name }}</a>
+      <mat-icon *ngIf="!isLast(i)" class="item__next">chevron_right</mat-icon>
+    </ng-container>
+
+    <ng-template #simpleItem>
+      <a class="item__anchor item__anchor--simple">{{ item.name }}</a>
+    </ng-template>
+  </span>
+</div>
+
+
